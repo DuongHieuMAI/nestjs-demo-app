@@ -1,9 +1,9 @@
-import { DateTime } from '../../common/interfaces/datetime.interface'
+import { DateTime } from '../../common/interfaces/datetime.interface';
 
-export interface User extends DateTime{
+export interface User {
   // TODO transform ID types to number? or specific type
-  id: string;
-  display_name: string;  
+  // id: string;
+  displayName: string;
   email: string;
   // full_name: string;
   // is_email_verified: boolean;
