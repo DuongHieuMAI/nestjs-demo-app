@@ -6,7 +6,6 @@ import { AnyExceptionFilter } from '../core/exceptions/http-exception.filter';
 // import { ValidationPipe } from './pipes/validation.pipe';
 
 @Controller('users')
-@UseFilters(new AnyExceptionFilter())
 export class UserController {
   constructor(private readonly usersService: UsersService) {}
 
@@ -14,7 +13,7 @@ export class UserController {
   @UsePipes(new ValidationPipe({ transform: true}))
   async create(
     @Body() createUserDto: CreateUserDto) {
-    this.usersService.create(createUserDto);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()
