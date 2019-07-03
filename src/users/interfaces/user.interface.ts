@@ -2,7 +2,7 @@ import { DateTime } from '../../common/interfaces/datetime.interface';
 
 export interface User {
   // TODO transform ID types to number? or specific type
-  // id: string;
+  id: string ;
   displayName: string;
   email: string;
   // full_name: string;
