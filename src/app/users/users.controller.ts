@@ -2,7 +2,7 @@ import { Controller, Post, Get, Body, UseFilters, UsePipes, ValidationPipe } fro
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './interfaces/user.interface';
-import { AnyExceptionFilter } from '../core/exceptions/http-exception.filter';
+import { AnyExceptionFilter } from '../../core/exceptions/http-exception.filter';
 // import { ValidationPipe } from './pipes/validation.pipe';
 
 @Controller('users')
@@ -18,7 +18,6 @@ export class UserController {
 
   @Get()
   async findAll(): Promise<User[]> {
-    console.log('to here');
     return this.usersService.findAll();
   }
 }

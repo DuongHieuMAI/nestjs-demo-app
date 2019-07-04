@@ -7,5 +7,5 @@ export class CreateUserDto implements User {
   readonly displayName: string;
   @IsEmail()
   readonly email: string;
-  readonly id: string;
+  readonly id: number;
 }
