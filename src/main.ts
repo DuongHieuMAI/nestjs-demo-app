@@ -7,6 +7,7 @@ import { ResponseInterceptor } from './core/interceptors/response.interceptor';
 import { Logger } from '@nestjs/common';
 
 const port = process.env.PORT || 3000;
+// const appConfig = ConfigService
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
