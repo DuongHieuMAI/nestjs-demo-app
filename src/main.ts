@@ -29,9 +29,9 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
 
   // var configPort = 3000;
-  // await configPort = app.
+  let configPort = app.get('ConfigService').port();
 
-  await app.listen(port);
-  Logger.log(`Server running on port: ${port}`, 'Boostrap');
+  await app.listen(configPort);
+  Logger.log(`Server running on port: ${configPort}`, 'Boostrap');
 }
 bootstrap();

@@ -23,7 +23,7 @@ export class ConfigService {
       NODE_ENV: Joi.string()
         .valid(['dev', 'prod', 'test'])
         .default('dev'),
-      PORT: Joi.number().default(3000),
+      PORT: Joi.number().default(5001),
       API_AUTH_ENABLE: Joi.boolean().required(),
     });
 
@@ -42,6 +42,10 @@ export class ConfigService {
    */
   get isApiAuthEnabled(): boolean {
     return Boolean(this.envConfig.API_AUTH_ENABLED);
+  }
+
+  public port() {
+    return this.envConfig.PORT;
   }
 
 }
