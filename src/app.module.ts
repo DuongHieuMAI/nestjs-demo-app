@@ -5,6 +5,7 @@ import { UserEntity } from './app/users/user.entity';
 import { Connection } from 'typeorm';
 import 'dotenv/config';
 import { getBoolean } from './common/utilities';
+import { ConfigModule } from './config/config.module';
 // @ts-ignore
 const defaultOptions: TypeOrmModuleOptions = {
   // @ts-ignore
@@ -19,6 +20,7 @@ const defaultOptions: TypeOrmModuleOptions = {
 
 @Module({
   imports: [
+    ConfigModule,
     UsersModule,
     // TypeOrmModule.forRoot(),
     TypeOrmModule.forRoot({
