@@ -1,4 +1,4 @@
-import 'dotenv/config';
+// import 'dotenv/config';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
@@ -6,10 +6,6 @@ import { AnyExceptionFilter } from './core/exceptions/http-exception.filter';
 import { ResponseInterceptor } from './core/interceptors/response.interceptor';
 import { Logger } from '@nestjs/common';
 import { ConfigService } from './config/config.service';
-
-const port = process.env.PORT || 3000;
-// const appConfig = new ConfigService();
-// port = this.c.get('PORT');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -28,9 +24,7 @@ async function bootstrap() {
   app.useGlobalFilters(new AnyExceptionFilter());
   app.useGlobalInterceptors(new ResponseInterceptor());
 
-  // var configPort = 3000;
-  let configPort = app.get('ConfigService').port();
-
+  const configPort = app.get('ConfigService').port();
   await app.listen(configPort);
   Logger.log(`Server running on port: ${configPort}`, 'Boostrap');
 }
