@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UserController } from './users.controller';
-import { UsersService } from './users.service';
-import { UserEntity } from './user.entity';
+import { UserController } from '../controllers/users.controller';
+import { UsersService } from '../services/users.service';
+import { UserEntity } from '../entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '../../config/config.module';
+import { ConfigModule } from '../../../config/config.module';
 
 @Module({
   imports: [
@@ -12,6 +12,7 @@ import { ConfigModule } from '../../config/config.module';
   ],
   controllers: [UserController],
   providers: [UsersService],
+  exports: [UsersService],
 })
 export class UsersModule {
 }

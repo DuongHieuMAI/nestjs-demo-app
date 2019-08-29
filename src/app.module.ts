@@ -1,23 +1,23 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './app/users/users.module';
-// import { Connection } from 'typeorm';
+import { UsersModule } from './app/users/modules/users.module';
 import 'dotenv/config';
 import { ConfigModule } from './config/config.module';
-// import { ConfigService } from './config/config.service';
 import { DatabaseService } from './common/database/database.service';
 import { DatabaseModule } from './common/database/database.module';
+import { AuthenticationModule } from './app/authentications/modules/authentication.module';
 
 @Module({
   imports: [
     ConfigModule,
-    UsersModule,
     DatabaseModule,
     TypeOrmModule.forRootAsync({
       imports: [DatabaseModule],
       useClass: DatabaseService,
       inject: [DatabaseModule],
     }),
+    UsersModule,
+    AuthenticationModule,
   ],
   // controllers: [AppController],
   // providers: [AppService],
